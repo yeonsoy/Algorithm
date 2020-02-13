@@ -2,34 +2,34 @@
 #include <vector>
 
 using namespace std;
-int N; // µ¿Àü Á¾·ù
-int K; // ÇÕ
+int N; // ë™ì „ ì¢…ë¥˜
+int K; // í•©
 vector <int> coins;
 
 int main()
 {
-	cin >> N >> K;
-	int count = 0;
+    cin >> N >> K;
+    int count = 0;
 
-	for (int i = 0; i < N; i++)
-	{
-		int temp;
-		cin >> temp;
-		coins.push_back(temp);
-	}
+    for (int i = 0; i < N; i++)
+    {
+        int temp;
+        cin >> temp;
+        coins.push_back(temp);
+    }
 
-	for (int i = N - 1; i >= 0; i--)
-	{
-		if (coins[i] <= K)
-		{
-			int coin_count = K / coins[i]; // ÇöÀç ÄÚÀÎÀ» ¸î °³³ª »ç¿ëÇÒ °ÍÀÎ°¡
+    for (int i = N - 1; i >= 0; i--)
+    {
+        if (coins[i] <= K)
+        {
+            int coin_count = K / coins[i]; // í˜„ì¬ ì½”ì¸ì„ ëª‡ ê°œë‚˜ ì‚¬ìš©í•  ê²ƒì¸ê°€
 
-			K = K - (coins[i] * coin_count); // »ç¿ëÇÑ ÄÚÀÎ ¸¸Å­ Á¦¿Ü
-			count += coin_count; // »ç¿ëÇÑ ÄÚÀÎ °³¼ö
-		}
-	}
-	cout << count;
-	
-	
-	return 0;
+            K = K - (coins[i] * coin_count); // ì‚¬ìš©í•œ ì½”ì¸ë§Œí¼ ì œì™¸
+            count += coin_count; // ì‚¬ìš©í•œ ì½”ì¸ ê°œìˆ˜
+        }
+    }
+    cout << count;
+    
+    
+    return 0;
 }
