@@ -18,17 +18,13 @@ void getCount()
         {
             if(board[i][j - 1] == board[i][j])
                 h_temp ++;
-            else {
-                answer = max(h_temp, answer);
+            else
                 h_temp = 1;
-            }
-            
+
             if(board[j-1][i] == board[j][i])
                 v_temp++;
-            else {
-                answer = max(v_temp, answer);
+            else
                 v_temp = 1;
-            }
         }
         
         if(h_temp == N || v_temp == N)
