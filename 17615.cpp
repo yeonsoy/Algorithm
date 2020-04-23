@@ -3,6 +3,8 @@
 #include <algorithm>
 using namespace std;
 
+// 볼 모으기
+
 const int INF = 987654321;
 int N;
 int r_count, b_count;
