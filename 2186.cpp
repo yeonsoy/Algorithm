@@ -10,8 +10,8 @@ typedef pair<int, int> point;
 int N, M;
 int K;
 point dir[4] = {{1,0}, {0,1}, {-1,0}, {0,-1}};
-char map[100][100];
 string word;
+char map[100][100];
 int dp[100][100][80];
 int answer;
 
