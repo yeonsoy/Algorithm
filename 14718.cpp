@@ -18,7 +18,7 @@ int main() {
     
     for (int i = 0; i < N; i++)
         for (int j = 0; j < 3; j++)
-            cin >>soldier[i][j];
+            cin >> soldier[i][j];
     
     for (int i = 0; i < N; i++) {
         for (int j = 0; j < N; j++) {
