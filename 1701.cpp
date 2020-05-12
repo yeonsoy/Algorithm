@@ -16,10 +16,9 @@ int main() {
     
     cin >> str;
     
-    for (int i = 0; i < str.size(); i++) {
+    for (int i = 0; i < str.size(); i++)
         suf.push_back(str.c_str() + i);
-        cout << suf[i] << endl;
-    }
+
     sort(suf.begin(), suf.end());
     
     int j = 0;
