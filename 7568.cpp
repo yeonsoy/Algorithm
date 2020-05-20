@@ -3,6 +3,7 @@
 using namespace std;
 
 // 덩치
+
 struct person {
     int height;
     int weight;
