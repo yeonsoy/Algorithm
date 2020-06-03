@@ -13,7 +13,8 @@ long long solve(int whole, int half) {
     // 이미 계산해놓은 값이 존재하는 경우
     if(dp[whole][half] > 0) return dp[whole][half];
     
-    long long &ret = dp[whole][half];
+    long long &
+    ret = dp[whole][half];
     
     if(whole > 0) ret += solve(whole - 1, half + 1);
     if(half > 0) ret += solve(whole, half - 1);
