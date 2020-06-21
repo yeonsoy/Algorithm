@@ -48,6 +48,7 @@ pair<point, int> getMinPoint() {
     que.push({baekjoon, {0, mount}});
     visited[baekjoon.first][baekjoon.second] = true;
     vector <pair<point, int>> temp;
+    int min_dist = 2e9;
     
     while(!que.empty()) {
         point p = que.front().first;
@@ -56,8 +57,10 @@ pair<point, int> getMinPoint() {
         que.pop();
         
         // 손님에 도달한 경우 저장
-        if(map[p.first][p.second] > 0)
+        if(map[p.first][p.second] > 0 && min_dist >= d) {
+            min_dist = d;
             temp.push_back({p, d});
+        }
         
         // 연료가 다 떨어진 경우
         if(remain <= 0) continue;
@@ -70,7 +73,7 @@ pair<point, int> getMinPoint() {
             if(r < 0 || r>=N || c < 0 || c >= N) continue;
             if(visited[r][c]) continue;
             if(map[r][c] == -1) continue; // 벽인 경우
-   
+            
             que.push({{r, c}, {d + 1, remain - 1}});
             visited[r][c] = true;
         }
@@ -144,7 +147,7 @@ int main() {
     
     int count = 0;
     while(true) {
-
+        
         pair<point, int> min_point = getMinPoint();
         
         // 아무 승객도 태울 수 없는 경우
