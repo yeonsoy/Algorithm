@@ -5,29 +5,31 @@ using namespace std;
 // 기능개발
 
 vector<int> solution(vector<int> progresses, vector<int> speeds) {
-    vector<int> answer;
-    vector<float> delay;
-    
-    for (int i = 0; i < progresses.size(); i++)
-        delay.push_back((100 - progresses[i]) / (float)speeds[i]);
-    
-    int k = 1;
-    float next = delay.at(0);
-    
-    for (int i = 1; i < delay.size(); i++)
-    {
-        if ((int)(next + 0.9) >= (int)(delay.at(i) + 0.9))
-            k++;
-        else
-        {
-            answer.push_back(k);
-            k = 1;
-            next = delay.at(i);
-        }
-        
-        if (i == delay.size() - 1)
-            answer.push_back(k);
-    }
-    
-    return answer;
+	vector<int> answer;
+
+	int k = 1;
+	int cur = (100 - progresses[0]) / speeds[0];
+	if ((100 - progresses[0]) % speeds[0] != 0)
+		cur++;
+
+	for (int i = 1; i < progresses.size(); i++)
+	{
+		int next = (100 - progresses[i]) / speeds[i];
+
+		if ((100 - progresses[i]) % speeds[i] != 0)
+			next++;
+
+		if (cur >= next)
+			k++;
+		else
+		{
+			answer.push_back(k);
+			k = 1;
+			cur = next;
+		}
+	}
+
+	answer.push_back(k);
+
+	return answer;
 }
