@@ -4,7 +4,7 @@ using namespace std;
 
 #define fastio() ios::sync_with_stdio(0), cin.tie(0), cout.tie(0);
 
-// ÃÖ¼Ò Èü
+// ìµœì†Œ íž™
 
 int N;
 priority_queue <int> pq;
