@@ -1,5 +1,7 @@
 import java.io.BufferedReader
+import java.io.BufferedWriter
 import java.io.InputStreamReader
+import java.io.OutputStreamWriter
 import java.util.*
 
 // 큐
@@ -8,45 +10,48 @@ var N: Int = 0
 var queue = mutableListOf<Int>()
 
 fun main() {
-    val br = BufferedReader(InputStreamReader(System.`in`))
-    var token = StringTokenizer(br.readLine())
+    val bufferedReader = BufferedReader(InputStreamReader(System.`in`))
+    val bufferedWriter = BufferedWriter(OutputStreamWriter(System.out))
+    val token = StringTokenizer(bufferedReader.readLine())
     N = token.nextToken().toInt()
 
     for (i in 1..N) {
-        token = StringTokenizer(br.readLine())
-        var oper = token.nextToken()
-        when (oper) {
+        val operation = StringTokenizer(bufferedReader.readLine())
+        when (operation.nextToken()) {
             "push" -> {
-                queue.add(token.nextToken().toInt())
+                queue.add(operation.nextToken().toInt())
             }
             "pop" -> {
                 if (queue.isNotEmpty()) {
-                    println(queue[0])
-                    queue.removeAt(0)
+                    bufferedWriter.write("${queue.first()}\n")
+                    queue.removeFirst()
                 } else
-                    println(-1)
+                    bufferedWriter.write("-1\n")
             }
             "size" -> {
-                println(queue.size)
+                bufferedWriter.write("${queue.size}\n")
             }
             "empty" -> {
                 if (queue.isEmpty())
-                    println(1)
+                    bufferedWriter.write("1\n")
                 else
-                    println(0)
+                    bufferedWriter.write("0\n")
             }
             "front" -> {
                 if (queue.isNotEmpty())
-                    println(queue[0])
+                    bufferedWriter.write("${queue.first()}\n")
                 else
-                    println(-1)
+                    bufferedWriter.write("-1\n")
             }
             "back" -> {
                 if (queue.isNotEmpty())
-                    println(queue[queue.lastIndex])
+                    bufferedWriter.write("${queue.last()}\n")
                 else
-                    println(-1)
+                    bufferedWriter.write("-1\n")
             }
         }
     }
+
+    bufferedWriter.flush()
+    bufferedWriter.close()
 }
